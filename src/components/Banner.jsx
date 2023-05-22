@@ -1,4 +1,4 @@
-import {Text, View, StyleSheet} from 'react-native'
+import {Text, View, StyleSheet, Platform} from 'react-native'
 
 const Banner = () => {
     return (
@@ -14,14 +14,17 @@ const styles = StyleSheet.create({
         maxHeight: 100,
         //just use numbers, it's a ratio of pixel density
         //also, b/c this is nested in a scrollview component, it won't take up the space it should. so we have to fix that by adding some styles to the sscrollview component in app.tsx
-        backgroundColor: 'black'
+        backgroundColor: 'black',
+        justifyContent: 'center',
+        alignItems: 'center',
+        
     },
     bannerText: {
         color: 'white',
         flex: 1,
         fontSize: 24,
         textAlign: 'center',
-        textAlignVertical: 'center',
+        textAlignVertical: Platform.OS === 'android' ? 'center' : undefined,
 
     },
 })

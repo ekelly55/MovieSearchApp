@@ -2,19 +2,35 @@ import {Text, View, Image, StyleSheet} from 'react-native'
 
 const Results = ({movie}) => {
     return (
-            <View>
-                <Text>result</Text>
-                <Image style={styles.image} source = {movie.Poster}/>
+            <View style={styles.card}>
+                <Image style={styles.image} src = {movie.Poster}/>
+                <View style = {styles.content}>
+                    <Text style={styles.titleText}>{movie.Title}</Text>
+                    <Text style={styles.subtitleText}>{movie.Rated} {movie.Year}</Text>
+                    <Text style={styles.descriptionText}>{movie.Plot}</Text>
+                </View>
             </View>
     )
 }
 
 const styles = StyleSheet.create({
-    card: {flex: 1},
-    image: {height: 40, width: 40},
-    titleText: {},
-    subtitleText: {},
-    descriptionText: {}
+    card: {alignItems: 'center', flexDirection: 'row', padding: 20, margin: 20, borderColor: 'gray', borderWidth: 1, borderRadius: 10},
+    image: {height: 100, width: 100},
+    titleText: {
+        fontSize: 18,
+        fontWeight: '600'
+    },
+    subtitleText: {
+        fontSize: 12,
+        fontWeight: '400'
+    },
+    descriptionText: {
+        fontSize: 16
+    },
+    content: {
+        flex: 1,
+        paddingLeft: 10,
+    }
 })
 
 

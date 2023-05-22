@@ -6,6 +6,7 @@ import Results from '../components/Results'
 
 
 const apiUrl = 'http://www.omdbapi.com/?apikey=5e302e6a&t='
+
 const LandingPage = () => {
 
     const [movieResult, setMovieResult] = useState()
@@ -13,7 +14,7 @@ const LandingPage = () => {
     const handleSearch = async (searchString) => {
         const result = await fetch(`http://www.omdbapi.com/?t=${searchString}&apikey=5e302e6a`).then((data) => data.json())
         setMovieResult(result)
-        console.log(movieResult.Poster)
+        console.log(movieResult)
     }
     return (
         <View style={{flex: 1}}>
